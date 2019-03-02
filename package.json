@@ -1,0 +1,16 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/xxbld/blog.git",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "deploy": "yarn run buid && gh-pages -d docs/.vuepress/dist"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1",
+    "vuepress": "^0.14.9"
+  }
+}
