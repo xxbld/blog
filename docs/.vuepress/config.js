@@ -1,19 +1,36 @@
 const sidebar = {
-    '/Web/': [{
-        title: 'Vue',
-        children: [
-            'Vue/vuepress-blog'
-        ]
-    }]
+    '/web/': [
+        {
+            title: 'Vue',
+            children: [
+                'vue/vuepress-blog',
+            ]
+        },
+        {
+            title: 'Node',
+            children: [
+                'node/node-environment',
+            ]
+        },
+    ]
+
 }
 
-const nav = [{
-    text: '前端',
-    items: [{
-        text: 'Vue',
-        link: '/Web/' + sidebar['/Web/'][0]['children'][0]
-    }]
-}];
+const nav = [
+    {
+        text: '前端',
+        items: [{
+            text: 'Vue',
+            link: '/web/' + sidebar['/web/'][0]['children'][0]
+        }]
+    },
+    {
+        text: 'GIS',
+        items: [{
+            text: 'Vue',
+            // link: '/web/' + sidebar['/web/'][0]['children'][0]
+        }]
+    }];
 const config = {
     base: '/bolg',
     title: '小小冰绿豆的博客',
