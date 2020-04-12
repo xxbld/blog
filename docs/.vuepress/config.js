@@ -1,48 +1,80 @@
-const getConfig = require("vuepress-bar");
-const { nav, sidebar } = themeConfig = getConfig(`${__dirname}/..`, {
-    pinyinNav: true,
-    // addReadMeToFirstGroup: false,
-})
-// docs/readme 不放在sidebar里面
-delete sidebar['/']
-Object.keys(sidebar).forEach(key => {
-    // addReadMeToFirstGroup: false, 无效 移除第一个
-    sidebar[key][0] === '' ? sidebar[key].shift() : 0
-})
-const config = {
+module.exports = {
     base: '/blog/',
-    title: '小小冰绿豆',
-    description: 'hello',
-    // theme: 'reco',
-    themeConfig: {
-        repo: 'xxbld/blog',
-        repoLabel: 'Github',
-        editLinks: true,
-        editLinkText: '查看原文|编辑此页',
-        lastUpdated: 'Last Updated',
-        nav,
-        sidebar,
-        // sidebarDepth: 3,
+    "title": "小小冰绿豆",
+    "description": "",
+    "dest": "public",
+    "head": [
+        [
+            "link",
+            {
+                "rel": "icon",
+                "href": "/favicon.ico"
+            }
+        ],
+        [
+            "meta",
+            {
+                "name": "viewport",
+                "content": "width=device-width,initial-scale=1,user-scalable=no"
+            }
+        ]
+    ],
+    "theme": "reco",
+    "themeConfig": {
+        "nav": [
+            {
+                "text": "主页",
+                "link": "/",
+                "icon": "reco-home"
+            },
+            {
+                "text": "时间轴",
+                "link": "/timeline/",
+                "icon": "reco-date"
+            },
+            {
+                "text": "个人主页",
+                "icon": "reco-message",
+                "items": [
+                    {
+                        "text": "GitHub",
+                        "link": "https://github.com/xxbld",
+                        "icon": "reco-github"
+                    },
+                ]
+            }
+        ],
+        "type": "blog",
+        "blogConfig": {
+            "category": {
+                "location": 2,
+                "text": "分类"
+            },
+            "tag": {
+                "location": 3,
+                "text": "标签"
+            }
+        },
+        "friendLink": [
+            {
+                "title": "vuepress-theme-reco",
+                "desc": "A simple and beautiful vuepress Blog & Doc theme.",
+                "avatar": "https://vuepress-theme-reco.recoluan.com/icon_vuepress_reco.png",
+                "link": "https://vuepress-theme-reco.recoluan.com"
+            }
+        ],
+        "logo": "/logo.png",
+        "search": true,
+        "searchMaxSuggestions": 10,
+        "sidebar": "auto",
+        "lastUpdated": "Last Updated",
+        "author": "xxbld",
+        "authorAvatar": "/avatar.png",
+        "record": "xxxx",
+        "startYear": "2017"
     },
-    markdown: {
-        // 显示代码行号
-        lineNumbers: true
-    },
-    plugins: [require('./plugins/rpurl'), 'mermaidjs'],
-    // extraWatchFiles: [
-    //     '.vuepress/plugins/**/*.js',
-    // ],
-    // chainWebpack: (config, isServer) => {
-    //     const inlineLimit = 10000
-    //     config.module.rule('images')
-    //         .test(/\.(png|jpe?g|gif|webp)(\?.*)?$/)
-    //         .use('url-loader')
-    //         .loader('url-loader')
-    //         .options({
-    //             limit: inlineLimit,
-    //             name: `assets/img/[name].[hash:8].[ext]`
-    //         })
-    // }
+    plugins: ['mermaidjs'],
+    "markdown": {
+        "lineNumbers": true
+    }
 }
-
-module.exports = config;
