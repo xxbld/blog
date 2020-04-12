@@ -28,7 +28,7 @@ const config = {
         // 显示代码行号
         lineNumbers: true
     },
-    plugins: [require('./plugins/rpurl')],
+    plugins: [require('./plugins/rpurl'), 'mermaidjs'],
     // extraWatchFiles: [
     //     '.vuepress/plugins/**/*.js',
     // ],
